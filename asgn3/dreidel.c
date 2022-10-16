@@ -1,21 +1,10 @@
 //Should store the game logic
-//Pseudocode idk
-//Main D function
-//	Create a randomizer that chooses x players from the 8 given
-//	Create a randomizer for number of coins used per round.
-//	Create unique seeds for each round
-//
-//	output how many rounds the game lasted
-//	output the winner
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "mtrand.h"
 #include "dreidel.h"
 #include <stdint.h>
-
-//protypying which declares the functions
-//int dre_spin();
-//int select_players();
 
 char player_names[8][9] = {"Aharon","Batsheva","Chanah","David","Ephraim","Faige","Gamaliel","Hannah"};
 
@@ -28,12 +17,11 @@ char spin_dreidel(void) {
 	int ran_num;
 	
 	ran_num = mtrand_rand64() % 4;
-	//printf("spinspin %d %s\n", ran_num, dreidel_faces[ran_num]);
 	return dreidel_faces[ran_num];
 }
 
 
-int play_game(int n_players, int coins_per_player, int * n_rounds) {
+int play_game (int n_players, int coins_per_player, int * n_rounds) {
 	int i;
 	int r;
 	int p;
@@ -43,10 +31,10 @@ int play_game(int n_players, int coins_per_player, int * n_rounds) {
 	
 	pot = 0;
 
-	mtrand_seed(game_seed);
+	mtrand_seed (game_seed);
 	//mtrand_seed(707);	
 
-	for(i = 0; i < n_players; ++i) { 
+	for (i = 0; i < n_players; ++i) { 
 		//intialize player with num coins
 		num_coins_in_hand[i] = coins_per_player;
 	}
@@ -54,13 +42,12 @@ int play_game(int n_players, int coins_per_player, int * n_rounds) {
 	remaing_players = n_players;
 	r = 0;
 
-	while (remaing_players != 1){
-		//printf("\n round %d players %d \n", r, remaing_players);
-		for(p = 0; p < n_players; ++p) {
+	while (remaing_players != 1) {
+		for (p = 0; p < n_players; ++p) {
 			if (num_coins_in_hand[p] != 0) {
 				spinspin = spin_dreidel();
 			
-				switch(spinspin) {
+				switch (spinspin) {
 					case 'N':
 						num_coins_in_hand[p] = num_coins_in_hand[p];
 						break;
@@ -83,18 +70,13 @@ int play_game(int n_players, int coins_per_player, int * n_rounds) {
 						printf ("%s: eliminated in round %d of a %d player game.\n", player_names[p], r, n_players);
 					}
 				}
-				//printf("Pot value %d dreidel - %c player - %s num of coins %d\n", pot, spinspin, player_names[p], num_coins_in_hand[p]);
 			}
-		}//next players turn
-		//if (pot == n_players * coins_per_player) {
-			//return 1;
-		//}
+		}
 		r = r + 1; //next game
 	}
 
 	for (p = 0; p < n_players; ++p) {
 		if (num_coins_in_hand[p] != 0) {
-			//printf("\n%s %d %d %d %lld", player_names[p], n_players, coins_per_player, r, game_seed);
 			printf("\n%s %d %d %d %lu \n", player_names[p], n_players, coins_per_player, r, game_seed);
 		}
 	}

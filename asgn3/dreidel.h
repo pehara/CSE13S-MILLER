@@ -1,4 +1,4 @@
-//Should contain function declarations that are used by play-dreidel.c, DONT FORGET THE INCLUDE GUARD IDK WHAT IT IS
+//Should contain function declarations
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>

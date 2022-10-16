@@ -12,7 +12,7 @@ uint64_t game_seed;
 int print_message;
 int opt;
 
-int main(int argc, char **argv){
+int main (int argc, char **argv) {
         int n_players = 5;
         int coins_per_player = 6;
         int n_rounds;
@@ -47,7 +47,7 @@ int main(int argc, char **argv){
                 return 1;
         }
         else {
-                play_game(n_players, coins_per_player, &n_rounds);
+                play_game (n_players, coins_per_player, &n_rounds);
                 return 0;
         }
         
