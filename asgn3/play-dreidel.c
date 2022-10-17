@@ -13,8 +13,8 @@ int print_message;
 int opt;
 
 int main (int argc, char **argv) {
-        int n_players = 5;
-        int coins_per_player = 6;
+        int n_players = 4;
+        int coins_per_player = 3;
         int n_rounds;
         
         game_seed = 613;
@@ -43,7 +43,7 @@ int main (int argc, char **argv) {
         }
 
         if (n_players > 8 || n_players < 2 || coins_per_player > 20 || coins_per_player < 1 || game_seed < 1 ) {
-                printf ("\nerror invalid entry. \n");
+                printf ("error invalid entry. \n");
                 return 1;
         }
         else {
@@ -52,3 +52,4 @@ int main (int argc, char **argv) {
         }
         
 }
+
