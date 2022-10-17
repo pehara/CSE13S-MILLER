@@ -11,12 +11,15 @@
 uint64_t game_seed;
 int print_message;
 int opt;
+int invalid_input;
 
 int main (int argc, char **argv) {
         int n_players = 4;
         int coins_per_player = 3;
         int n_rounds;
         
+        invalid_input = 0;
+
         game_seed = 613;
 
         print_message = 0;
@@ -27,23 +30,26 @@ int main (int argc, char **argv) {
                         if (!strcmp(argv[optind], "-p")) {
                                 n_players = atoi(argv[optind + 1]);
                         }
-
-                        if (!strcmp(argv[optind], "-c")) {
+                        
+                        else if (!strcmp(argv[optind], "-c")) {
                                 coins_per_player = atoi(argv[optind + 1]);
                         }
 
-                        if (!strcmp(argv[optind], "-s")) {
+                        else if (!strcmp(argv[optind], "-s")) {
                                 game_seed = strtoul(argv[optind + 1], NULL, 0);
                         }
 
-                        if (!strcmp(argv[optind], "-v")) {
+                        else if (!strcmp(argv[optind], "-v")) {
                                 print_message = 1;
+                        }
+                        else if (!strcmp(argv[optind], "-?")) {
+                                invalid_input = 1;
                         }
                 }
         }
 
-        if (n_players > 8 || n_players < 2 || coins_per_player > 20 || coins_per_player < 1 || game_seed < 1 ) {
-                printf ("error invalid entry. \n");
+        if (n_players > 8 || n_players < 2 || coins_per_player > 20 || coins_per_player < 1 || game_seed < 1 || invalid_input == 1 ) {
+                printf ("zero exit code\n");
                 return 1;
         }
         else {
