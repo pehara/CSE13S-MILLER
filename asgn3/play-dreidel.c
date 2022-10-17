@@ -50,12 +50,11 @@ int main (int argc, char **argv) {
 
         if (n_players > 8 || n_players < 2 || coins_per_player > 20 || coins_per_player < 1 || game_seed < 1 || invalid_input == 1 ) {
                 //printf ("zero exit code\n");
-                return EXIT_FAILURE;
+                return 1;
         }
         else {
                 play_game (n_players, coins_per_player, &n_rounds);
-                return EXIT_SUCCESS;
-                //return 0;
+                return 0;
         }
         
 }
