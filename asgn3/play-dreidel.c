@@ -42,19 +42,20 @@ int main (int argc, char **argv) {
                         else if (!strcmp(argv[optind], "-v")) {
                                 print_message = 1;
                         }
-                        else if (!strcmp(argv[optind], "-?")) {
-                                invalid_input = 1;
-                        }
+                }
+                if (opt == '?') {
+                        invalid_input = 1;
                 }
         }
 
         if (n_players > 8 || n_players < 2 || coins_per_player > 20 || coins_per_player < 1 || game_seed < 1 || invalid_input == 1 ) {
-                printf ("zero exit code\n");
-                return 1;
+                //printf ("zero exit code\n");
+                return EXIT_FAILURE;
         }
         else {
                 play_game (n_players, coins_per_player, &n_rounds);
-                return 0;
+                return EXIT_SUCCESS;
+                //return 0;
         }
         
 }
