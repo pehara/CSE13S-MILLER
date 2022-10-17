@@ -87,7 +87,7 @@ int play_game (int n_players, int coins_per_player, int * n_rounds) {
 
 	for (p = 0; p < n_players; ++p) {
 		if (num_coins_in_hand[p] != 0) {
-			printf("%s %d %d %d %lu \n", player_names[p], n_players, coins_per_player, r, game_seed);
+			printf("%s %d %d %d %lu\n", player_names[p], n_players, coins_per_player, r, game_seed);
 		}
 	}
 
