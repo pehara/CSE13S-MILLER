@@ -1,4 +1,4 @@
-//Should store the game logic
+//Should store the game logic resubmit to test
 
 #include <stdio.h>
 #include <stdlib.h>

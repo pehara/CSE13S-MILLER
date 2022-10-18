@@ -1,4 +1,4 @@
-//The CLI, it should interface with the game but not contain any game logic
+//The CLI, it should interface with the game but not contain any game logic resubmit to test
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
