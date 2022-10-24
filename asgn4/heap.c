@@ -56,8 +56,6 @@ uint32_t down_heap(Stats *stats, uint32_t *a, uint32_t heap_size, uint32_t n) {
             }
         }
 
-        //printf("\ninside while");
-
         if (a[m] > a[bigger]) {
             m = n;
             break;
@@ -101,7 +99,6 @@ void heap_sort(Stats *stats, uint32_t *arr, uint32_t n_elements) {
         sorted_list[n] = heap[0];
         heap[0] = heap[n_elements - n - 1];
         down_heap(stats, heap, n_elements - n, n);
-        //printf("hs n[%d] ", n);
     }
 
     for (n = 0; n < n_elements; n++){

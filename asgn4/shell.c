@@ -29,14 +29,11 @@ void shell_sort(Stats *stats, uint32_t *arr, uint32_t n_elements) {
 
     //shell sorting
     for (gap = n_elements - 1; gap > 0; gap = next_gap(gap)) {
-        //printf("gap %d\n", gap); //delete
         for (i = gap; i < n_elements; i++) {
-            //printf("i %d\n", i); //delete
             j = i;
             tempArr = arr[i];
             cmp(stats, 0, 0);
             while (j >= gap && tempArr < arr[j - gap]) {
-                //printf("j %d\n", j); //delete
                 move(stats, 0);
                 arr[j] = arr[j - gap];
                 j = j - gap;

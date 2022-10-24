@@ -34,7 +34,7 @@ void print_results(char *sortType, Stats *stats, uint32_t *arr, uint32_t n_eleme
 int main(int argc, char **argv){
 	  int opt = 0;
     int i;
-    int n_elements = 12; //100
+    int n_elements = 100;
     int randSeed = 13371453;
     int printArr = 100;
     int err_in = 0;
