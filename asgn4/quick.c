@@ -66,9 +66,10 @@ void quick_sort(Stats *stats, uint32_t *arr, uint32_t n_elements) {
   if (n_elements < SMALL) {
     shell_sort(stats, arr, n_elements);
   }
-
-  // Call q_sort
-  q_sort(stats, arr, 0, n_elements - 1);
+  else {
+    // Call q_sort
+    q_sort(stats, arr, 0, n_elements - 1);
+  }
 
 }
 
