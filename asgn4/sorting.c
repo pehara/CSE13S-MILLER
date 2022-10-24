@@ -146,7 +146,6 @@ int main(int argc, char **argv){
         arrayToSort_b[i] = mtrand_rand64() & MAX_RANDOM_NUM;
         arrayToSort_s[i] = arrayToSort_q[i] = arrayToSort_h[i] = arrayToSort_b[i];
       }
-      //print_results("Array to sort", stats, arrayToSort_b, n_elements, printArr);
 
       // Sort
       if (en_b_sort) {

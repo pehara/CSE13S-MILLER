@@ -9,16 +9,15 @@
 
 uint32_t find_pivot(Stats *stats, uint32_t *arr, int32_t left, int32_t right) {
 
-  // Select staring pivot
   uint32_t pivot;
   int32_t j;
   uint32_t tempArr;
   int32_t i;
 
   pivot = arr[right];
-  //pivot = arr[left] + arr[right/2];
 
-  i = (left-1); // Start from the lowest
+
+  i = (left-1); 
 
   for (j=left; j<right; j++) {
     cmp(stats, 0, 0);
@@ -26,14 +25,13 @@ uint32_t find_pivot(Stats *stats, uint32_t *arr, int32_t left, int32_t right) {
       move(stats, 0);
       i++;
       // Swap array
-      tempArr  = arr[j]; // Store in temporary array before swap
+      tempArr  = arr[j];
       arr[j]   = arr[i];
       arr[i]   = tempArr;
     }
   }
 
-  // swap with the greater element
-  tempArr  = arr[i+1]; // Store in temporary array before swap
+  tempArr  = arr[i+1];
   arr[i+1] = arr[right];
   arr[right] = tempArr;
 
@@ -48,12 +46,8 @@ void q_sort(Stats *stats, uint32_t *arr, int32_t left, int32_t right) {
   if (left < right) {
     pivot_index = find_pivot(stats, arr, left, right);
 
-    // Recursive call of left piot
-    //printf("\nq sort left [%d] pivot_index [%d]", left, pivot_index-1);
     q_sort(stats, arr, left, pivot_index-1);
 
-    // Recursive call of left piot
-    //printf("\nq sort right [%d] pivot_index [%d]", right, pivot_index+1);
     q_sort(stats, arr, pivot_index+1, right);
 
   }
