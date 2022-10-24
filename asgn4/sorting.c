@@ -64,15 +64,20 @@ int main(int argc, char **argv){
           en_s_sort = en_b_sort = en_q_sort = en_h_sort = 1;
         }
         else if (!strncmp(argv[optind], "-H", 2)) {
-          printf("-a Employs all sorting algorithms");
-          printf("\n-s EnablesShellSort");
-          printf("\n-b EnablesBubbleSort");
-          printf("\n-q EnablesQuickSort");
-          printf("\n-h EnablesHeapSort");
-          printf("\n-r seed : Set the random seed to seed. The default seed should be 13371453");
-          printf("\n-n size : Set the number of elements in the array to size. The default size should be 100. The range of valid input is 1 ≤ n ≤ 250, 000, 000 where n is the size specified");
-          printf("\n-p elements : Print out elements number of elements from the array");
-          printf("\n-H Printsoutprogramusage\n");
+          printf("SYNOPSIS\n");
+          printf("   A collection of comparison-based sorting algorithms.\n");
+          printf("\nUSAGE\n");
+          printf("   ./sorting [-Hasbhq] [-n length] [-p elements] [-r seed]\n");
+          printf("\nOPTIONS\n");
+          printf("   -H              Display program help and usage.\n");
+          printf("   -a              Enable all sorts.\n");
+          printf("   -b              Enable Bubble Sort.\n");
+          printf("   -h              Enable Heap Sort.\n");
+          printf("   -q              Enable Quick Sort.\n");
+          printf("   -s              Enable Shell Sort.\n");
+          printf("   -n length       Specify number of array elements (default: 100).\n");
+          printf("   -p elements     Specify number of elements to print (default: 100).\n");
+          printf("   -r seed         Specify random seed (default: 13371453).\n");
           return 0;
         } else {
           //printf("\nargc %s len %lu\n",argv[optind], strlen(argv[optind]));
@@ -109,7 +114,7 @@ int main(int argc, char **argv){
       }
 
       if (opt == '?') {
-        printf("\n opt %c\n", opt);
+        //printf("\n opt %c\n", opt);
         err_in = 1;
       }
 
@@ -147,25 +152,25 @@ int main(int argc, char **argv){
       if (en_b_sort) {
         reset(stats);
         bubble_sort(stats, arrayToSort_b, n_elements);
-        print_results("Bubble sort", stats, arrayToSort_b, n_elements, printArr);
+        print_results("Bubble Sort", stats, arrayToSort_b, n_elements, printArr);
       }
 
       if (en_h_sort) {
         reset(stats);
         heap_sort(stats, arrayToSort_h, n_elements);
-        print_results("Heap sort", stats, arrayToSort_h, n_elements, printArr);
+        print_results("Heap Sort", stats, arrayToSort_h, n_elements, printArr);
       }
 
       if (en_q_sort) {
         reset(stats);
         quick_sort(stats, arrayToSort_q, n_elements);
-        print_results("Quick sort", stats, arrayToSort_q, n_elements, printArr);
+        print_results("Quick Sort", stats, arrayToSort_q, n_elements, printArr);
       }
 
       if (en_s_sort) {
         reset(stats);
         shell_sort(stats, arrayToSort_s, n_elements);
-        print_results("Shell sort", stats, arrayToSort_s, n_elements, printArr);
+        print_results("Shell Sort", stats, arrayToSort_s, n_elements, printArr);
       }
 
       // Release memory
