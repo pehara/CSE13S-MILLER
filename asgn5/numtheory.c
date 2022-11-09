@@ -8,8 +8,6 @@
 #include "randstate.h"
 #include "numtheory.h"
 
-//gmp_randstate_t state;
-
 
 void make_prime(mpz_t p, uint64_t bits, uint64_t iters) {
     mpz_rrandomb(p, state, bits + 1);
