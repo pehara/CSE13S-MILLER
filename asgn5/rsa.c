@@ -31,7 +31,7 @@ void lcm(mpz_t o, mpz_t p,  mpz_t q) {
     //t = abs(p * q) / r;
 
     mpz_set(o, t);
-    mpz_clears(temp, t, r, tempp, tempq, NULL); //clear temp here or no??
+    mpz_clears(temp, t, r, tempp, tempq, NULL);
 }
 
 void rsa_make_pub(mpz_t p, mpz_t q, mpz_t n, mpz_t e, uint64_t nbits, uint64_t iters) {
@@ -42,25 +42,20 @@ void rsa_make_pub(mpz_t p, mpz_t q, mpz_t n, mpz_t e, uint64_t nbits, uint64_t i
     make_prime(p, r_bits, iters);
     make_prime(q, nbits - r_bits, iters);
 
-    // p = make_prime(prime1, nbits, iters);
-    // q = make_prime(prime2, nbits, iters);
     mpz_sub_ui(prime1, p, 1);
 
     mpz_sub_ui(prime2, q, 1);
     lcm(lamda, prime1, prime2);
-    //gmp_printf("prime 1 = %Zx, prime2 = %Zx\n", prime1, prime2);
-    //gmp_printf("lcm = %Zx\n", lamda);
+
     while (mpz_cmp_ui(lamda_gcd, 1) != 0) {
         mpz_t temp_ran, temp_lamda;
         mpz_inits(temp_ran, temp_lamda, NULL);
-        //lcm(lamda, prime1, prime2);
-        //lamda = lcm(p-1, q-1);
+
         // Generate random number
         mpz_urandomb(ran_num, state, nbits);
         mpz_set(temp_ran, ran_num);
         mpz_set(temp_lamda, lamda);
         gcd(lamda_gcd, temp_ran, temp_lamda);
-        //gmp_printf("gcd = %Zx\n", lamda_gcd);
         
         mpz_clears(temp_lamda, temp_ran, NULL);
     }
@@ -73,7 +68,6 @@ void rsa_make_pub(mpz_t p, mpz_t q, mpz_t n, mpz_t e, uint64_t nbits, uint64_t i
 
     mpz_clears(prime1, prime2, lamda, ran_num, lamda_gcd, NULL);
  
-    //printf("\n check make 5\n");
 }
 
 void rsa_make_priv(mpz_t d, mpz_t e, mpz_t p, mpz_t q) {
@@ -83,7 +77,6 @@ void rsa_make_priv(mpz_t d, mpz_t e, mpz_t p, mpz_t q) {
     mpz_sub_ui(prime1, p, 1);
     mpz_sub_ui(prime2, q, 1);
     lcm(lamda, prime1, prime2);
-    //lamda_lcm = lcm(p-1, q-1);
 
     mod_inverse(d, e, lamda);
 
@@ -136,7 +129,6 @@ void rsa_encrypt_file(FILE *infile, FILE *outfile, mpz_t n, mpz_t e) {
     mpz_t m, m_e, div;
     mpz_inits(m, m_e, div, NULL);
 
-    //n_dob = mpz_get_d(n);
     if (mpz_cmp_ui(n, 1) > 0) {
         k = ((mpz_sizeinbase(n, 2) - 1) / 8);
     }
@@ -208,8 +200,6 @@ void rsa_decrypt_file(FILE *infile, FILE *outfile, mpz_t n, mpz_t d) {
 
     free(array_block);
 
-    // mpz_set(c, d); //returning
-
     mpz_clears(c, b, NULL);
 
 }
@@ -230,7 +220,6 @@ bool rsa_verify(mpz_t m, mpz_t s, mpz_t e, mpz_t n) {
     mpz_inits(a, b, NULL);
 
     pow_mod(a, s, e, n);
-    // pow_mod(b, m, e, n);
 
     //if (a == b)
     if(mpz_cmp(m, a) == 0) {

@@ -1,5 +1,4 @@
 //contains the implementation and main() keygen program
-//doesnt like getopt, and optind
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -70,16 +69,16 @@ int main (int argc, char **argv) {
             break;
 
             case 'h':
-            printf("SYNOPSIS\n");
-            printf("A RSA Encryptor/decryptor\n\n");
+            printf("Usage ./keygen [options]\n");
+            printf("./keygen generates a public / private key pair, placing the keys into the public and private key files as specified below. The keys have a modulus (n) whose length is specified in the program options.\n\n");
             printf("USAGE\n");
             printf("./keygen [-h] [-v] [-n filename] [-d filename]  [-s seed] \n\n");
             printf("OPTIONS\n");
-            printf("   -b specifies the minimum bits needed for the public modulus n");
+            printf("   -s specifies the random seed for the random state initialization (default: the seconds since the UNIX epoch, given by time(NULL))");
+            printf("\n   -b specifies the minimum bits needed for the public modulus n");
             printf("\n   -i specifies the number of Miller-Rabin iterations for testing primes (default:50)");
             printf("\n   -n pbfile:specifies the public key file (default:rsa.pub)");
             printf("\n   -d pvfile:specifies the privatekey file (default:rsa.priv)");
-            printf("\n   -s specifies the random seed for the random state initialization (default: the seconds since the UNIX epoch, given by time(NULL))");
             printf("\n   -v enables verbose output");
             printf("\n   -h displays program synopsis and usage\n");
             return 0;

@@ -2,12 +2,15 @@ This file contains the following:
 
 ##decrypt.c:
 This file includes my implementation of my function for decrypt alongside with the main function. Within this function, the user is able to parse the commands:
-    -i: specifies the input file to encrypt (default: stdin).
+using ./decrypt -case
+-i: specifies the input file to encrypt (default: stdin).
 -o: specifies the output file to encrypt (default: stdout).
 -n: specifies the file containing the public key (default: rsa.pub).
 -v: enables verbose output.
 
 ##encrypt.c:
+This program contains the implementation of my function for encrypt alongside with the main function i have writtedn. With this the user can parse the following commands:
+using ./encrypt -case
 -h: displays program synopsis and usage.
 This file includes my implementation and main() function for the encrypt program.
 -i: specifies the input file to encrypt (default: stdin).
@@ -18,6 +21,7 @@ This file includes my implementation and main() function for the encrypt program
 
 ##keygen.c:
 This contains the implementation and main() function for the keygen program.
+using ./keygen -case
 -b: specifies the minimum bits needed for the public modulus n(default: 1024).
 -i: specifies the number of Miller-Rabin iterations for testing primes (default: 50).
 -n pbfile: specifies the public key file (default: rsa.pub).
@@ -27,37 +31,28 @@ This contains the implementation and main() function for the keygen program.
 -h: displays program synopsis and usage.
 
 ##numtheory.c: 
-This contains the implementations of the number theory functions.
+This contains my implementation of the number theory functions.
 
 ##numtheory.h: 
-This specifies the interface for the number theory functions.
+This header file specifies the interface for the number theory functions.
 
 ##randstate.c: 
-This contains the implementation of the random state interface for the RSA library and number theory functions.
+This file contains the implementation of my random state interface for the RSA library and number theory functions.
 
 ##randstate.h: 
-This specifies the interface for initializing and clearing the random state.
+This header file specifies the interface for initializing and clearing the random state.
 
 ##rsa.c: 
 This contains the implementation of the RSA library.
 
 ##rsa.h: 
-This specifies the interface for the RSA library.
+This header file specifies the interface for the RSA library.
 
 ##Makefile:
-CC = clang must be specified.
-CFLAGS = -Wall -Wextra -Werror -Wpedantic must be specified.
-pkg-config to locate compilation and include flags for the GMP library must be used.
-make must build the encrypt, decrypt, and keygen executables, as should make all.
-make decrypt should build only the decrypt program.
-make encrypt should build only the encrypt program.
-make keygen should build only the keygen program.
-make clean must remove all files that are compiler generated.
-make format should format all your source code, including the header files.
+This file compiles all the other .c files so that they are executable and run together to execute keygen, encrypt and decrypt.
 
 ##README.md: 
-This must use proper Markdown syntax and describe how to use your program and Makefile. It should also list and explain any command-line options that your program accepts. Any false positives reported by scan-build should be documented and explained here as well. Note down any known bugs or errors in this file as well for the graders.
+A file containg the proper markdown syntax that describes how to use my program and all the contents of my file.
 
 ##DESIGN.pdf: 
-This document must be a proper PDF. This design document must describe your design and design process for your program with enough detail such that a sufficiently knowl- edgeable programmer would be able to replicate your implementation. This does not mean copy-ing your entire program in verbatim. You should instead describe how your program works with supporting pseudocode
-
+This document has a written explanation for all the written portions of code and how I went about creating them and what their purpose is. It provides enough information to replicate it.
