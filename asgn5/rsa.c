@@ -194,7 +194,7 @@ void rsa_decrypt_file(FILE *infile, FILE *outfile, mpz_t n, mpz_t d) {
 
     // Scan file
     while ( gmp_fscanf(infile, "%Zx\n", c) != EOF) {
-        jj = ((mpz_sizeinbase(n, 2)) / 8);
+        jj = ((mpz_sizeinbase(c, 2)) / 8);
         // Convert
         rsa_decrypt(b, c, d, n);
 

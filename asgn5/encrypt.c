@@ -64,11 +64,17 @@ int main(int argc, char **argv){
             break;
 
             case 'h':
-            printf("-i:specifies the input file to encrypt (default: stdin).");
-            printf("\n-o:specifies the out put file to encrypt (default:stdout).");
-            printf("\n-n:specifies the file containing the public key (default:rsa.pub)");
-            printf("\n-v enables verbose output");
-            printf("\n-h displays program synopsis and usage\n");
+            printf("SYNOPSIS\n");
+            printf("Encrypts data using RSA encryption.\n");
+            printf("Encrypted data is decrypted by the decrypt program.\n\n");
+            printf("USAGE\n");
+            printf("./encrypt [-h] [-v] [-i input file name] [-o output file name]\n\n");
+            printf("OPTIONS\n");
+            printf("   -i specifies the input file to encrypt (default: stdin).");
+            printf("\n   -o specifies the out put file to encrypt (default:stdout).");
+            printf("\n   -n specifies the file containing the public key (default:rsa.pub)");
+            printf("\n   -v enables verbose output");
+            printf("\n   -h displays program synopsis and usage\n");
             return 0;
             break;
         }

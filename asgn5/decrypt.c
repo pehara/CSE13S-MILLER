@@ -56,11 +56,17 @@ int main(int argc, char **argv){
             break;
 
             case 'h':
-            printf("-i:specifies the input file to decrypt(default:stdin)");
-            printf("\n-o:specifies the output file to decrypt(default:stdout)");
-            printf("\n-n:specifies the file containing the private key(default:rsa.priv)");
-            printf("\n-v enables verbose output");
-            printf("\n-h displays program synopsis and usage\n");
+            printf("SYNOPSIS\n");
+            printf("Decrypts data using RSA encryption.\n");
+            printf("Encrypted data is encrypted by the encrypt program.\n\n");
+            printf("USAGE\n");
+            printf("./decrypt [-h] [-v] [-i input file name] [-o output file name]\n\n");
+            printf("OPTIONS\n");
+            printf("   -i specifies the input file to decrypt (default:stdin)");
+            printf("\n   -o specifies the output file to decrypt (default:stdout)");
+            printf("\n   -n specifies the file containing the private key (default:rsa.priv)");
+            printf("\n   -v enables verbose output");
+            printf("\n   -h displays program synopsis and usage\n");
             return 0;
             break;
         }
@@ -108,8 +114,8 @@ int main(int argc, char **argv){
 
     //print verbose out
     if (verb_out) {
-        gmp_printf("n = %Zd\n", n);
-        gmp_printf("d = %Zd\n", d);
+        gmp_printf("n = %Zx\n", n);
+        gmp_printf("d = %Zx\n", d);
     }
 
     // Decrypt file
