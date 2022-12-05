@@ -13,7 +13,7 @@ encode: encode.c code.o huffman.o io.o node.o pq.o stack.o
 	$(CC) $(CFLAGS) -c $<
 
 clean:
-	rm -f *.o
+	rm -f encode decode *.o
 
 spotless:
 	rm -f encode decode *.o
